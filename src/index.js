@@ -6,4 +6,10 @@ import './stylesheets/style.scss';
 // Components
 import App from './components/App';
 
-document.write("It works.");
+// document.write("It works.");
+
+// Render
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
