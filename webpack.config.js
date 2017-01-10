@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './app.js',
+  entry: './src/index.js',
 
   output: {
     // path: 'build',
@@ -11,7 +11,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'react-hot!babel-loader'
       },
       {
         test: /\.scss$/,
