@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import { Link } from 'react-router';
 
 class Home extends Component {
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    console.log(event);
+    console.log(event.target);
+    console.log(event.target.elements);
+
+    let teacherName = event.target.elements[0].value;
+    console.log(teacherName);
+    let teacherTopic = event.target.elements[1].value;
+    console.log(teacherTopic);
+
+    // es2015 interpolation
+    let path = `featured/${teacherTopic}/${teacherName}`;
+    browserHistory.push(path);
+  }
+
   render() {
     return (
       <div className="main-content home">
@@ -12,6 +31,11 @@ class Home extends Component {
         <hr />
         <h3>Featured teacher</h3>
         <Link to="featured/reactjs/Bruce">Bruce Valentine</Link>
+        <form onSubmit={this.handleSubmit}>
+          <input type='text' placeholder='name'/>
+          <input type='text' placeholder='Topic'/>
+          <button type='submit'>Go!</button>
+        </form>
       </div>
     );
   }
