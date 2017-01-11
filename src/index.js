@@ -10,5 +10,5 @@ import './stylesheets/style.scss';
 //routes
 import routes from './router';
 
-// Render
+// main Render
 render(routes, document.getElementById('root'));
