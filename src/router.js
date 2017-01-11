@@ -7,9 +7,10 @@ import Home from './components/Home';
 import Courses from './components/Courses';
 import About from './components/About';
 import NotFound from './components/notFound';
-import HTML from './components/courses/HTML';
-import CSS from './components/courses/CSS';
-import JavaScript from './components/courses/JavaScript';
+import Featured from './components/Featured';
+import CourseContainer from './components/courses/CourseContainer';
+
+import CourseList from './data/courses';
 
 const routes = (
   <Router history={browserHistory}>
@@ -22,11 +23,13 @@ const routes = (
 
         {/* default redirection */}
         <IndexRedirect to="html" />
-        
-        <Route path="html" component={HTML}/>
-        <Route path="css" component={CSS}/>
-        <Route path="javascript" component={JavaScript} />
+
+        <Route path="html" component={CourseContainer} data={CourseList.HTML} />
+        <Route path="css" component={CourseContainer} data={CourseList.CSS} />
+        <Route path="javascript" component={CourseContainer} data={CourseList.JS} />
       </Route>
+
+      <Route path="featured/:topic/:name" component={Featured}/>
 
       {/* notfound component with App as parent */}
       <Route path="*" component={NotFound}/>
